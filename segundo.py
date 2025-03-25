@@ -55,35 +55,48 @@ while True:
     print("4.- ver proyectos guardados por Constructoras")
     print("5.-salir del programa ")
 
-    opcion = (int(input("Introduce el número de la opción que deseas: ")))
-
-    if opcion == 1:
-        
+    try:    
+        opcion = (int(input("Introduce el número de la opción que deseas: ")))
+    except ValueError:
+        print("Error deberias poner un numero entre las opciones indicadas 1 a 5")
+    
+        if opcion == 1:
+            try:
                 id_constructora =(int(input("Ingresa un ID único para esta Constructora: ")))
+                print("Guardaste el id")ñ
+            except ValueError:
+                            print("ingresa un numero entero (No letras)")
+                            continue
+                            
+            try:
                 nombre = input("Ingresa el nombre de la Constructora: ")
+            except ValueError:
+                print("ingresa un nombre valido sin numeros ")
+                continue
+                            
+            try:
                 cantidad =  (int(input("Ingresa la cantidad de proyectos vigentes de esta Constructora: ")))
-                ventas = input("ingresa las ventas de la constructora: ")
-                builder[id_constructora] = {
-                    "nombre": nombre,
-                    "cantidad": cantidad,
-                    "ventas": ventas,
-                    }
-                
-    elif opcion == 2:
-        if cantidad >= 0 :
-             print("no hay datos ingresados")
+            except ValueError:
+                    print("Error la cantidad debe ser mayor a 0 ")               
+            continue
            
-        else:
-             print("la cantidad total de proyectos son :",cantidad + cantidad)
-
-                
-    elif opcion == 3:
+            try:
+               ventas = input("ingresa las ventas de la constructora: ")
+            except ValueError:
+                    print("Debes ingresar un numero mayor a 0")
+            continue    
+        
+            try:
+                cantidad =print("esta es la cantidad d eproyectos registrados")
+            except ValueError:
+                print("El numreo debe ser mayor a 0 ")
+        elif opcion == 3:
         
             if ventas >= 0: 
                 print("No existen ventas registradas")
             else:
                 print(f"Ventas registradas:1",{ventas}+ {ventas})
-    elif opcion == 4:
+         elif opcion == 4:
         
         print(builder,"estos son los proyectos ingresados")    
         
@@ -92,5 +105,5 @@ while True:
         print("saliste del programa ")   
         break
     
-    else :
+else :
          print("Ingresa una opcion valida ")

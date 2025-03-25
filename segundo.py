@@ -44,6 +44,19 @@ Total de ventas: 25
 # Diccionario de constructoras 
 builder = {}
 
+def validator(input):
+       option = 0
+       while True:
+        try:
+             option = int(input)
+             if isinstance(option,int):
+                  if option <= 0:
+                       print("Ingresa un número mayor a 0")
+                  else:
+                   break
+        except:
+               print("Por favor, ingresa un número") 
+        return option       
 
 
 while True:
@@ -53,43 +66,26 @@ while True:
     print("2.- Mostrar  cantidad de proyectos de las Constructoras")
     print("3.- ventas de proyectos por  Constructora")
     print("4.- ver proyectos guardados por Constructoras")
-    print("5.-salir del programa ")
-
-    try:    
-        opcion = (int(input("Introduce el número de la opción que deseas: ")))
-    except ValueError:
-        print("Error deberias poner un numero entre las opciones indicadas 1 a 5")
-    
-        if opcion == 1:
-            try:
-                id_constructora =(int(input("Ingresa un ID único para esta Constructora: ")))
-                print("Guardaste el id")ñ
-            except ValueError:
-                            print("ingresa un numero entero (No letras)")
-                            continue
-                            
-            try:
-                nombre = input("Ingresa el nombre de la Constructora: ")
-            except ValueError:
-                print("ingresa un nombre valido sin numeros ")
-                continue
-                            
-            try:
-                cantidad =  (int(input("Ingresa la cantidad de proyectos vigentes de esta Constructora: ")))
-            except ValueError:
-                    print("Error la cantidad debe ser mayor a 0 ")               
-            continue
-           
-            try:
-               ventas = input("ingresa las ventas de la constructora: ")
-            except ValueError:
-                    print("Debes ingresar un numero mayor a 0")
-            continue    
-        
-            try:
-                cantidad =print("esta es la cantidad d eproyectos registrados")
-            except ValueError:
-                print("El numreo debe ser mayor a 0 ")
+    print("5.- salir del programa ")
+ 
+    while True:
+        opcion = input("Introduce el número de la opción que deseas: ")        
+        try:
+             opcion = int(opcion)
+             if isinstance(opcion,int):
+                  if opcion <= 0:
+                       print("Ingresa un número mayor a 0")
+                  else:
+                   break
+        except:
+               print("Por favor, ingresa un número")
+          
+    """
+    if opcion == 1:
+        id_constructora =(int(input("Ingresa un ID único para esta Constructora: ")))
+        print("Guardaste el id")
+       
+            
         elif opcion == 3:
         
             if ventas >= 0: 
@@ -106,4 +102,5 @@ while True:
         break
     
 else :
-         print("Ingresa una opcion valida ")
+         print("Ingresa una opcion valida ")"
+         """

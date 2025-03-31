@@ -42,7 +42,7 @@ Total de ventas: 25
 
 """
 # Diccionario de constructoras 
-bbuilder = {}
+builder = {}
 
 def validator(input_text):
     option = 0
@@ -63,7 +63,8 @@ while True:
     print("2.- Mostrar cantidad de proyectos de las Constructoras")
     print("3.- Ventas de proyectos por Constructora")
     print("4.- Ver proyectos guardados por Constructoras")
-    print("5.- Salir del programa")
+    print("5 - imprimir archivo")
+    print("6.- Salir del programa")
 
     opcion = input("Introduce el número de la opción que deseas: ")        
     try:
@@ -91,8 +92,20 @@ while True:
         elif opcion == 4:
             for id_proyecto, datos in builder.items():
                 print(f"ID: {id_proyecto}, Datos: {datos}")
-
+                
         elif opcion == 5:
+       
+            with open('builder.txt', 'w') as archivo:
+       
+             for clave, valor in builder.items():
+                archivo.write(f"{clave}: {valor}\n")
+                
+                print("se imprimio el archivo con sus respectivos datos")
+                
+
+            break
+
+        elif opcion == 6:
             print("Saliendo del programa...")
             break
 
